@@ -1,15 +1,13 @@
 package com.skinshop.project.skinshop.models;
 
-import java.util.Calendar;
-import java.util.Date;
-
-import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,21 +19,15 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Sales {
+public class Card {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "player_id")
+    @Column(nullable = false)
+    private String number;
+
+    @OneToOne(mappedBy = "card", cascade = CascadeType.REMOVE)
     private Player player;
-
-    @ManyToOne
-    @JoinColumn(name = "skin_id")
-    private Skin skin;
-
-    @Basic
-    private java.sql.Date date;
-
 }
