@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,6 +18,7 @@ import com.skinshop.project.skinshop.service.IPlayerService;
 
 
 @RestController
+@RequestMapping("/player")
 public class PlayerController {
     
     @Autowired
@@ -31,4 +33,6 @@ public class PlayerController {
     public ResponseEntity<List<PlayerDTO>> getAllPlayers(){
         return new ResponseEntity<>(playerService.getAllPlayers(), HttpStatus.OK);
     }
+
+
 }

@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,8 +35,9 @@ public class Skin {
 
     // @ManyToMany(mappedBy = "skins")
     // @JsonIgnoreProperties("skins")
-    // private Set<Player> players;
+    // private Set<Sales> sales;
 
     @OneToMany(mappedBy = "skin")
+    // @JsonIgnoreProperties("skin")
     Set<Sales> sales;
 }
