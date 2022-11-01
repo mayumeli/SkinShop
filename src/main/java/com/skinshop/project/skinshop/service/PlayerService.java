@@ -26,6 +26,8 @@ public class PlayerService implements IPlayerService {
 
     @Override
     public List<PlayerDTO> getAllPlayers() {
-        return playerRepo.getAllPlayerDTOs();
+        List<PlayerDTO> playerDTOs = playerRepo.getAllPlayerDTOs();
+        System.out.println(playerDTOs);
+        return playerDTOs;
     }
 }
