@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,14 +29,11 @@ public class Sales {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "player_id")
+    @JoinColumn(name = "player_id", referencedColumnName = "id")
     private Player player;
 
     @ManyToOne
-    @JoinColumn(name = "skin_id")
+    @JoinColumn(name = "skin_id", referencedColumnName = "id")
     private Skin skin;
-
-    @Basic
-    private java.sql.Date date;
 
 }

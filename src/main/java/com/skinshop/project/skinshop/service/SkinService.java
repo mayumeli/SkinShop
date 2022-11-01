@@ -22,7 +22,9 @@ public class SkinService implements ISkinService {
 
     @Override
     public List<Skin> getAllSkins() {
-        return skinRepo.findAll();
+        List<Skin> skins = skinRepo.findAll();
+        System.out.println(skins);
+        return skins;
     }
 
 }
