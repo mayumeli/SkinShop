@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,8 +36,8 @@ public class Player {
     @Column(nullable = false)
     private String email;
 
-    @OneToOne
-    @JoinColumn(name = "card_id")
+    @OneToOne(mappedBy = "player", cascade = CascadeType.PERSIST)
+    // @JsonIgnoreProperties("player")
     private Card card;
 
     // código legado

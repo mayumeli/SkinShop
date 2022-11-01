@@ -28,6 +28,7 @@ public class Card {
     @Column(nullable = false)
     private String number;
 
-    @OneToOne(mappedBy = "card", cascade = CascadeType.REMOVE)
+    @OneToOne
+    @JoinColumn(name = "player_id", referencedColumnName = "id")
     private Player player;
 }
