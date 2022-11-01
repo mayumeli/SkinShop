@@ -37,7 +37,7 @@ public class Player {
     private String email;
 
     @OneToOne(mappedBy = "player", cascade = CascadeType.PERSIST)
-    // @JsonIgnoreProperties("player")
+    @JsonIgnoreProperties("player")
     private Card card;
 
     // código legado

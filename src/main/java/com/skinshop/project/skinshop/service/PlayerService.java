@@ -1,5 +1,7 @@
 package com.skinshop.project.skinshop.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.skinshop.project.skinshop.dto.PlayerDTO;
@@ -20,5 +22,10 @@ public class PlayerService implements IPlayerService {
             player.getCard().setPlayer(player);
         }
         return new PlayerDTO(playerRepo.save(player));
+    }
+
+    @Override
+    public List<PlayerDTO> getAllPlayers() {
+        return playerRepo.getAllPlayerDTOs();
     }
 }
