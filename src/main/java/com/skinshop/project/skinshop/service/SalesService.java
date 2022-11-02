@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.skinshop.project.skinshop.dto.SalesDTO;
 import com.skinshop.project.skinshop.models.Sales;
 import com.skinshop.project.skinshop.repository.SalesRepo;
 
@@ -16,8 +17,8 @@ public class SalesService implements ISalesService {
     private final SalesRepo salesRepo;
 
     @Override
-    public Sales createSale(Sales sales) {
-        return salesRepo.save(sales);
+    public SalesDTO createSale(Sales sales) {
+        return new SalesDTO(salesRepo.save(sales));
     }
 
     @Override

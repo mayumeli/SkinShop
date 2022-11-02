@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.skinshop.project.skinshop.dto.SalesDTO;
 import com.skinshop.project.skinshop.models.Sales;
 import com.skinshop.project.skinshop.service.ISalesService;
 
@@ -22,7 +23,7 @@ public class SalesController {
     private ISalesService salesService;
 
     @PostMapping
-    public ResponseEntity<Sales> createSales(@RequestBody Sales sales) {
+    public ResponseEntity<SalesDTO> createSales(@RequestBody Sales sales) {
         return new ResponseEntity<>(salesService.createSale(sales), HttpStatus.CREATED);
     }
 

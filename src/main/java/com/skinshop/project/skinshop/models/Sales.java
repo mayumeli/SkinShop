@@ -34,7 +34,7 @@ public class Sales {
     @ManyToOne
     @JoinColumn(name = "player_id", referencedColumnName = "id")
     @JsonIgnoreProperties({"sales", "card"})
-    private Player player;
+    private Player player; 
 
     @ManyToOne
     @JoinColumn(name = "skin_id", referencedColumnName = "id")

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.skinshop.project.skinshop.dto.SkinDTO;
 import com.skinshop.project.skinshop.models.Skin;
 import com.skinshop.project.skinshop.service.ISkinService;
 
@@ -22,12 +23,12 @@ public class SkinController {
     private ISkinService skinService;
 
     @PostMapping
-    public ResponseEntity<Skin> createSkin(@RequestBody Skin skin) {
+    public ResponseEntity<SkinDTO> createSkin(@RequestBody Skin skin) {
         return new ResponseEntity<>(skinService.createSkin(skin), HttpStatus.CREATED);
     }
 
     @GetMapping
-    public ResponseEntity<List<Skin>> getAllSkins(){
+    public ResponseEntity<List<SkinDTO>> getAllSkins(){
         return new ResponseEntity<>(skinService.getAllSkins(), HttpStatus.OK);
     }
 
