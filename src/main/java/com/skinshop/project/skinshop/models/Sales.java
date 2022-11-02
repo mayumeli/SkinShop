@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -39,5 +40,8 @@ public class Sales {
     @JoinColumn(name = "skin_id", referencedColumnName = "id")
     @JsonIgnoreProperties("sales")
     private Skin skin;
+
+    @Column(nullable = false)
+    private Date date = new Date();
 
 }
