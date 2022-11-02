@@ -1,8 +1,11 @@
 package com.skinshop.project.skinshop.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,5 +24,10 @@ public class SalesController {
     @PostMapping
     public ResponseEntity<Sales> createSales(@RequestBody Sales sales) {
         return new ResponseEntity<>(salesService.createSale(sales), HttpStatus.CREATED);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Sales>> getAllSales(){
+        return new ResponseEntity<>(salesService.getAllSales(), HttpStatus.OK);
     }
 }

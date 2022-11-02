@@ -1,5 +1,6 @@
 package com.skinshop.project.skinshop.models;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -39,6 +40,6 @@ public class Skin {
     // private Set<Player> players;
 
     @OneToMany(mappedBy = "skin")
-    @JsonIgnoreProperties("sales")
-    Set<Sales> sales;
+    @JsonIgnoreProperties({ "skin", "player" })
+    Set<Sales> sales = new HashSet<>();
 }

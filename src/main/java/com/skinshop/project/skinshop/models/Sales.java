@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,10 +32,12 @@ public class Sales {
 
     @ManyToOne
     @JoinColumn(name = "player_id", referencedColumnName = "id")
+    @JsonIgnoreProperties({"sales", "card"})
     private Player player;
 
     @ManyToOne
     @JoinColumn(name = "skin_id", referencedColumnName = "id")
+    @JsonIgnoreProperties("sales")
     private Skin skin;
 
 }

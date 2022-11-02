@@ -1,5 +1,6 @@
 package com.skinshop.project.skinshop.models;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -53,5 +54,5 @@ public class Player {
     // private Set<Skin> skins;
 
     @OneToMany(mappedBy = "player")
-    Set<Sales> sales;
+    Set<Sales> sales = new HashSet<>();
 }
