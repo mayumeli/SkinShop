@@ -10,4 +10,6 @@ public interface ISalesService {
     SalesDTO createSale(Sales sales);
 
     List<Sales> getAllSales();
+
+    void cancelSale(Long id);
 }

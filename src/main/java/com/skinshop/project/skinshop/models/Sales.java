@@ -41,4 +41,10 @@ public class Sales {
     @Column(nullable = false)
     private Date date = new Date();
 
+    @Column(nullable = false)
+    private Boolean status = true;
+
+    @Column
+    private Date canceledAt;
+
 }

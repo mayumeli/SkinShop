@@ -1,6 +1,8 @@
 package com.skinshop.project.skinshop.service;
 
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,25 @@ public class SalesService implements ISalesService {
     @Override
     public List<Sales> getAllSales() {
         return salesRepo.findAll();
+    }
+
+    @Override
+    public void cancelSale(Long id) {
+        Sales sale = salesRepo.findById(id).get();
+
+        Date today = new Date();
+        Date saleDate = sale.getDate();
+        Long difference = today.getTime() - saleDate.getTime();
+        long days = TimeUnit.MILLISECONDS.toDays(difference);
+
+        if (days <= 5) {
+            sale.setStatus(false);
+            sale.setCanceledAt(today);
+            salesRepo.save(sale);
+            System.out.println("Sale canceled");
+        } else {
+            System.out.println("You can not cancel this sale");
+        }
     }
 
 }
